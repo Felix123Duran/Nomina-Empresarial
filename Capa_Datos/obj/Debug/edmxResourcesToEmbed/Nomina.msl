@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NominaModelStoreContainer" CdmEntityContainer="NominaEntities">
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="NominaModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="Nombre_Departamento" ColumnName="Nombre_Departamento" />
+          <ScalarProperty Name="Ubicacion_fisica" ColumnName="Ubicacion_fisica" />
+          <ScalarProperty Name="Resposable_Area" ColumnName="Resposable_Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalles_nomina">
+      <EntityTypeMapping TypeName="NominaModel.Detalles_nomina">
+        <MappingFragment StoreEntitySet="Detalles_nomina">
+          <ScalarProperty Name="ID_Detalle_Nomina" ColumnName="ID_Detalle_Nomina" />
+          <ScalarProperty Name="id_Nomina" ColumnName="id_Nomina" />
+          <ScalarProperty Name="ID_Empleado" ColumnName="ID_Empleado" />
+          <ScalarProperty Name="ID_Trancaccion" ColumnName="ID_Trancaccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="NominaModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="ID_Empleado" ColumnName="ID_Empleado" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Empleado_Nombre" ColumnName="Empleado_Nombre" />
+          <ScalarProperty Name="Id_Depart6amento" ColumnName="Id_Depart6amento" />
+          <ScalarProperty Name="Id_Puesto" ColumnName="Id_Puesto" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+          <ScalarProperty Name="ID_Igreso" ColumnName="ID_Igreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nomina">
+      <EntityTypeMapping TypeName="NominaModel.Nomina">
+        <MappingFragment StoreEntitySet="Nomina">
+          <ScalarProperty Name="ID_nomina" ColumnName="ID_nomina" />
+          <ScalarProperty Name="ID_Empleado" ColumnName="ID_Empleado" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto">
+      <EntityTypeMapping TypeName="NominaModel.Puesto">
+        <MappingFragment StoreEntitySet="Puesto">
+          <ScalarProperty Name="ID_Puesto" ColumnName="ID_Puesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Rango" ColumnName="Rango" />
+          <ScalarProperty Name="Saldo_Minimo" ColumnName="Saldo_Minimo" />
+          <ScalarProperty Name="Saldo_Maximo" ColumnName="Saldo_Maximo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="NominaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipos_Ingresos">
+      <EntityTypeMapping TypeName="NominaModel.Tipos_Ingresos">
+        <MappingFragment StoreEntitySet="Tipos_Ingresos">
+          <ScalarProperty Name="ID_Ingresos" ColumnName="ID_Ingresos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Salario_estandar" ColumnName="Salario_estandar" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaccion">
+      <EntityTypeMapping TypeName="NominaModel.Transaccion">
+        <MappingFragment StoreEntitySet="Transaccion">
+          <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ID_Tipo_Transaccion" ColumnName="ID_Tipo_Transaccion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

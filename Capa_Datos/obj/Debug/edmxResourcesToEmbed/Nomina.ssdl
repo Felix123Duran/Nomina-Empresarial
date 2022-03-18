@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NominaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="ID_Departamento" />
+    </Key>
+    <Property Name="ID_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Departamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ubicacion_fisica" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Resposable_Area" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalles_nomina">
+    <Key>
+      <PropertyRef Name="ID_Detalle_Nomina" />
+    </Key>
+    <Property Name="ID_Detalle_Nomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Nomina" Type="int" Nullable="false" />
+    <Property Name="ID_Empleado" Type="int" Nullable="false" />
+    <Property Name="ID_Trancaccion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="ID_Empleado" />
+    </Key>
+    <Property Name="ID_Empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Empleado_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Depart6amento" Type="int" Nullable="false" />
+    <Property Name="Id_Puesto" Type="int" Nullable="false" />
+    <Property Name="Salario" Type="int" Nullable="false" />
+    <Property Name="ID_Igreso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nomina">
+    <Key>
+      <PropertyRef Name="ID_nomina" />
+    </Key>
+    <Property Name="ID_nomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Empleado" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="hasta" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="ID_Puesto" />
+    </Key>
+    <Property Name="ID_Puesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rango" Type="int" Nullable="false" />
+    <Property Name="Saldo_Minimo" Type="int" Nullable="false" />
+    <Property Name="Saldo_Maximo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tipos_Ingresos">
+    <Key>
+      <PropertyRef Name="ID_Ingresos" />
+    </Key>
+    <Property Name="ID_Ingresos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salario_estandar" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="ID_Transaccion" />
+    </Key>
+    <Property Name="ID_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ID_Tipo_Transaccion" Type="int" Nullable="false" />
+    <Property Name="Estatus" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Detalles_nomina_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Detalles_nomina" Type="Self.Detalles_nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="ID_Empleado" />
+      </Principal>
+      <Dependent Role="Detalles_nomina">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_nomina_Nomina">
+    <End Role="Nomina" Type="Self.Nomina" Multiplicity="1" />
+    <End Role="Detalles_nomina" Type="Self.Detalles_nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomina">
+        <PropertyRef Name="ID_nomina" />
+      </Principal>
+      <Dependent Role="Detalles_nomina">
+        <PropertyRef Name="id_Nomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_nomina_Transaccion">
+    <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="1" />
+    <End Role="Detalles_nomina" Type="Self.Detalles_nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaccion">
+        <PropertyRef Name="ID_Transaccion" />
+      </Principal>
+      <Dependent Role="Detalles_nomina">
+        <PropertyRef Name="ID_Trancaccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="ID_Departamento" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Id_Depart6amento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="ID_Puesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Id_Puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Tipos_Ingresos">
+    <End Role="Tipos_Ingresos" Type="Self.Tipos_Ingresos" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos_Ingresos">
+        <PropertyRef Name="ID_Ingresos" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="ID_Igreso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nomina_Empleado1">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Nomina" Type="Self.Nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="ID_Empleado" />
+      </Principal>
+      <Dependent Role="Nomina">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NominaModelStoreContainer">
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalles_nomina" EntityType="Self.Detalles_nomina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nomina" EntityType="Self.Nomina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipos_Ingresos" EntityType="Self.Tipos_Ingresos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaccion" EntityType="Self.Transaccion" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Detalles_nomina_Empleado" Association="Self.FK_Detalles_nomina_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Detalles_nomina" EntitySet="Detalles_nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_nomina_Nomina" Association="Self.FK_Detalles_nomina_Nomina">
+      <End Role="Nomina" EntitySet="Nomina" />
+      <End Role="Detalles_nomina" EntitySet="Detalles_nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_nomina_Transaccion" Association="Self.FK_Detalles_nomina_Transaccion">
+      <End Role="Transaccion" EntitySet="Transaccion" />
+      <End Role="Detalles_nomina" EntitySet="Detalles_nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Departamento" Association="Self.FK_Empleado_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Puesto" Association="Self.FK_Empleado_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Tipos_Ingresos" Association="Self.FK_Empleado_Tipos_Ingresos">
+      <End Role="Tipos_Ingresos" EntitySet="Tipos_Ingresos" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nomina_Empleado1" Association="Self.FK_Nomina_Empleado1">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Nomina" EntitySet="Nomina" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="ID_Departamento" />
+    </Key>
+    <Property Name="ID_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ubicacion_fisica" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Resposable_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Departamento" FromRole="Departamento" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Detalles_nomina">
+    <Key>
+      <PropertyRef Name="ID_Detalle_Nomina" />
+    </Key>
+    <Property Name="ID_Detalle_Nomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Nomina" Type="Int32" Nullable="false" />
+    <Property Name="ID_Empleado" Type="Int32" Nullable="false" />
+    <Property Name="ID_Trancaccion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Detalles_nomina_Empleado" FromRole="Detalles_nomina" ToRole="Empleado" />
+    <NavigationProperty Name="Nomina" Relationship="Self.FK_Detalles_nomina_Nomina" FromRole="Detalles_nomina" ToRole="Nomina" />
+    <NavigationProperty Name="Transaccion" Relationship="Self.FK_Detalles_nomina_Transaccion" FromRole="Detalles_nomina" ToRole="Transaccion" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="ID_Empleado" />
+    </Key>
+    <Property Name="ID_Empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Empleado_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Depart6amento" Type="Int32" Nullable="false" />
+    <Property Name="Id_Puesto" Type="Int32" Nullable="false" />
+    <Property Name="Salario" Type="Int32" Nullable="false" />
+    <Property Name="ID_Igreso" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK_Empleado_Departamento" FromRole="Empleado" ToRole="Departamento" />
+    <NavigationProperty Name="Detalles_nomina" Relationship="Self.FK_Detalles_nomina_Empleado" FromRole="Empleado" ToRole="Detalles_nomina" />
+    <NavigationProperty Name="Puesto" Relationship="Self.FK_Empleado_Puesto" FromRole="Empleado" ToRole="Puesto" />
+    <NavigationProperty Name="Tipos_Ingresos" Relationship="Self.FK_Empleado_Tipos_Ingresos" FromRole="Empleado" ToRole="Tipos_Ingresos" />
+    <NavigationProperty Name="Nomina" Relationship="Self.FK_Nomina_Empleado1" FromRole="Empleado" ToRole="Nomina" />
+  </EntityType>
+  <EntityType Name="Nomina">
+    <Key>
+      <PropertyRef Name="ID_nomina" />
+    </Key>
+    <Property Name="ID_nomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Empleado" Type="Int32" Nullable="false" />
+    <Property Name="Desde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hasta" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Detalles_nomina" Relationship="Self.FK_Detalles_nomina_Nomina" FromRole="Nomina" ToRole="Detalles_nomina" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Nomina_Empleado1" FromRole="Nomina" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="ID_Puesto" />
+    </Key>
+    <Property Name="ID_Puesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rango" Type="Int32" Nullable="false" />
+    <Property Name="Saldo_Minimo" Type="Int32" Nullable="false" />
+    <Property Name="Saldo_Maximo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Puesto" FromRole="Puesto" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tipos_Ingresos">
+    <Key>
+      <PropertyRef Name="ID_Ingresos" />
+    </Key>
+    <Property Name="ID_Ingresos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Salario_estandar" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Tipos_Ingresos" FromRole="Tipos_Ingresos" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="ID_Transaccion" />
+    </Key>
+    <Property Name="ID_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Tipo_Transaccion" Type="Int32" Nullable="false" />
+    <Property Name="Estatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Detalles_nomina" Relationship="Self.FK_Detalles_nomina_Transaccion" FromRole="Transaccion" ToRole="Detalles_nomina" />
+  </EntityType>
+  <Association Name="FK_Empleado_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="ID_Departamento" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Id_Depart6amento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_nomina_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Detalles_nomina" Type="Self.Detalles_nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="ID_Empleado" />
+      </Principal>
+      <Dependent Role="Detalles_nomina">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_nomina_Nomina">
+    <End Role="Nomina" Type="Self.Nomina" Multiplicity="1" />
+    <End Role="Detalles_nomina" Type="Self.Detalles_nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomina">
+        <PropertyRef Name="ID_nomina" />
+      </Principal>
+      <Dependent Role="Detalles_nomina">
+        <PropertyRef Name="id_Nomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_nomina_Transaccion">
+    <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="1" />
+    <End Role="Detalles_nomina" Type="Self.Detalles_nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaccion">
+        <PropertyRef Name="ID_Transaccion" />
+      </Principal>
+      <Dependent Role="Detalles_nomina">
+        <PropertyRef Name="ID_Trancaccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="ID_Puesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="Id_Puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Tipos_Ingresos">
+    <End Role="Tipos_Ingresos" Type="Self.Tipos_Ingresos" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos_Ingresos">
+        <PropertyRef Name="ID_Ingresos" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="ID_Igreso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nomina_Empleado1">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Nomina" Type="Self.Nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="ID_Empleado" />
+      </Principal>
+      <Dependent Role="Nomina">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NominaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+    <EntitySet Name="Detalles_nomina" EntityType="Self.Detalles_nomina" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Nomina" EntityType="Self.Nomina" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tipos_Ingresos" EntityType="Self.Tipos_Ingresos" />
+    <EntitySet Name="Transaccion" EntityType="Self.Transaccion" />
+    <AssociationSet Name="FK_Empleado_Departamento" Association="Self.FK_Empleado_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_nomina_Empleado" Association="Self.FK_Detalles_nomina_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Detalles_nomina" EntitySet="Detalles_nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_nomina_Nomina" Association="Self.FK_Detalles_nomina_Nomina">
+      <End Role="Nomina" EntitySet="Nomina" />
+      <End Role="Detalles_nomina" EntitySet="Detalles_nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_nomina_Transaccion" Association="Self.FK_Detalles_nomina_Transaccion">
+      <End Role="Transaccion" EntitySet="Transaccion" />
+      <End Role="Detalles_nomina" EntitySet="Detalles_nomina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Puesto" Association="Self.FK_Empleado_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Tipos_Ingresos" Association="Self.FK_Empleado_Tipos_Ingresos">
+      <End Role="Tipos_Ingresos" EntitySet="Tipos_Ingresos" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nomina_Empleado1" Association="Self.FK_Nomina_Empleado1">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Nomina" EntitySet="Nomina" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
