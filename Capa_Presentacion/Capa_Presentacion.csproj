@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,9 @@
     <Content Include="Views\Home\CrearTransacciones.cshtml" />
     <Content Include="Views\Home\CrearNomina.cshtml" />
     <Content Include="Views\Home\Detalles_Nomina.cshtml" />
+    <Content Include="Views\Leer\Leer.cshtml" />
+    <Content Include="Views\Leer\LeerTipos_Ingresos.cshtml" />
+    <Content Include="Views\Leer\LeerTransaccion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

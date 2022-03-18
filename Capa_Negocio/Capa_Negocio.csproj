@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NegocioLeer.cs" />
     <Compile Include="NegocionCrear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
