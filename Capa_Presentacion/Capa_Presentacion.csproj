@@ -127,8 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LeerController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,22 +166,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\CrearDepartamento.cshtml" />
-    <Content Include="Views\Home\CrearPuesto.cshtml" />
-    <Content Include="Views\Home\CrearTipoIngreso.cshtml" />
-    <Content Include="Views\Home\CrearTransacciones.cshtml" />
-    <Content Include="Views\Home\CrearNomina.cshtml" />
-    <Content Include="Views\Home\Detalles_Nomina.cshtml" />
-    <Content Include="Views\Leer\Leer.cshtml" />
-    <Content Include="Views\Leer\LeerTipos_Ingresos.cshtml" />
-    <Content Include="Views\Leer\LeerTransaccion.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\Empleado\Crear.cshtml" />
+    <Content Include="Views\Empleado\Editar.cshtml" />
+    <Content Include="Views\Empleado\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Editar\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
