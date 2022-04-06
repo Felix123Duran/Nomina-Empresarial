@@ -1,0 +1,59 @@
+﻿@model Capa_Entidaddes.Nomina
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Nomina</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_nomina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_nomina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Empleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" value="@Model.ID_nomina" id="ID_nomina" name="ID_nomina" />
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

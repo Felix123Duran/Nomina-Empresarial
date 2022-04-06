@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepartamenntoController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
+    <Compile Include="Controllers\NominaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,10 @@
     <Content Include="Views\Departamennto\Crear.cshtml" />
     <Content Include="Views\Departamennto\Editar.cshtml" />
     <Content Include="Views\Departamennto\Eliminar.cshtml" />
+    <Content Include="Views\Nomina\Index.cshtml" />
+    <Content Include="Views\Nomina\Crear.cshtml" />
+    <Content Include="Views\Nomina\Editar.cshtml" />
+    <Content Include="Views\Nomina\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
