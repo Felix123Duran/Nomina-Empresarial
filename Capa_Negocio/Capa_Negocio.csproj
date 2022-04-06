@@ -46,6 +46,7 @@
     <Compile Include="NominaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuestoNegocio.cs" />
+    <Compile Include="TransaccionNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">
