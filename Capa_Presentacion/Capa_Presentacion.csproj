@@ -130,6 +130,7 @@
     <Compile Include="Controllers\DepartamenntoController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\NominaController.cs" />
+    <Compile Include="Controllers\PuestoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +181,10 @@
     <Content Include="Views\Nomina\Crear.cshtml" />
     <Content Include="Views\Nomina\Editar.cshtml" />
     <Content Include="Views\Nomina\Eliminar.cshtml" />
+    <Content Include="Views\Puesto\Index.cshtml" />
+    <Content Include="Views\Puesto\Crear.cshtml" />
+    <Content Include="Views\Puesto\Eliminar.cshtml" />
+    <Content Include="Views\Puesto\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
