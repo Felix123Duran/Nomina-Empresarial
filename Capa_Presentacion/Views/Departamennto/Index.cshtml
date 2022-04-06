@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Capa_Entidaddes.Departamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Departamento", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ubicacion_fisica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposable_Area)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_Departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ubicacion_fisica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposable_Area)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.ID_Departamento  }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new {  id=item.ID_Departamento  })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,6 +1,6 @@
-﻿using Capa_Entidaddes;
+﻿using System;
 using Capa_Negocio;
-using System;
+using Capa_Entidaddes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,79 +8,79 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
-    public class EmpleadoController : Controller
+    public class DepartamenntoController : Controller
     {
-        private readonly EmpleadosNegocio _negocio;
+        private readonly DepartamentoNegocio _negocio;
 
-        public EmpleadoController()
+        public DepartamenntoController()
         {
-            _negocio = new EmpleadosNegocio();
+            _negocio = new DepartamentoNegocio();
         }
-
-        // GET: Empleado
+        // GET: Departamennto
         public ActionResult Index()
         {
             var leer = _negocio.leer();
             return View(leer);
         }
 
-        //Crear Empleeado
+        //Crear Departamento
         public ActionResult Crear()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Crear(Empleado empleado)
+        public ActionResult Crear(Departamento departamento)
         {
-            _negocio.EmpleadosCrear(empleado);
+            _negocio.DepartamentoCrear(departamento);
             return View();
         }
+
 
         //Editar Empleeado
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var empleado = _negocio.GetEmpleado(id);
+            var departamento = _negocio.GetDepartamento(id);
 
-            if (empleado == null)
+            if (departamento == null)
             {
                 return null;
             }
 
-            return View(empleado);
+            return View(departamento);
         }
 
         [HttpPost]
-        public ActionResult Editar(Empleado empleado)
+        public ActionResult Editar(Departamento departamento)
         {
             if (ModelState.IsValid)
             {
-                _negocio.Editar(empleado);
+                _negocio.Editar(departamento);
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(empleado);
+            return View(departamento);
         }
 
         [HttpGet]
         public ActionResult Eliminar(int id)
         {
-            var empleado = _negocio.GetEmpleado(id);
+            var departamento = _negocio.GetDepartamento(id);
 
-            if (empleado == null)
+            if (departamento == null)
             {
                 return null;
             }
 
-            return View(empleado);
+            return View(departamento);
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Empleado empleado)
+        public ActionResult Eliminar(Departamento departamento)
         {
             if (ModelState.IsValid)
             {
-                _negocio.Eliminar(empleado);
+                _negocio.Eliminar(departamento);
                 return RedirectToAction(nameof(Index));
             }
 
