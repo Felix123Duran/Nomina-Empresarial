@@ -35,7 +35,7 @@ namespace Capa_Presentacion.Controllers
         public ActionResult Crear(Nomina nomina)
         {
             _negocio.NominasCrear(nomina);
-            return View();
+            return RedirectToAction(nameof(Index));
         }
 
         //Editar Empleeado

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepartamenntoController.cs" />
+    <Compile Include="Controllers\detalles_NominaController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\NominaController.cs" />
     <Compile Include="Controllers\PuestoController.cs" />
@@ -190,6 +191,10 @@
     <Content Include="Views\Transaccion\Crear.cshtml" />
     <Content Include="Views\Transaccion\Editar.cshtml" />
     <Content Include="Views\Transaccion\Eliminar.cshtml" />
+    <Content Include="Views\detalles_Nomina\Index.cshtml" />
+    <Content Include="Views\detalles_Nomina\Crear.cshtml" />
+    <Content Include="Views\detalles_Nomina\Eliminar.cshtml" />
+    <Content Include="Views\detalles_Nomina\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

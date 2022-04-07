@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataDepartamento.cs" />
+    <Compile Include="DatosDetallesNomina.cs" />
     <Compile Include="DatosEmpleados.cs" />
     <Compile Include="DatosNomina.cs" />
     <Compile Include="DatosTransaccion.cs" />
