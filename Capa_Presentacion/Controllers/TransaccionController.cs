@@ -52,36 +52,36 @@ namespace Capa_Presentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Transaccion Transaccion)
+        public ActionResult Editar(Transaccion transaccion)
         {
             if (ModelState.IsValid)
             {
-                _negocio.Editar(Transaccion);
+                _negocio.Editar(transaccion);
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(Transaccion);
+            return View(transaccion);
         }
 
         [HttpGet]
         public ActionResult Eliminar(int id)
         {
-            var Transaccion = _negocio.GetTransaccion(id);
+            var transaccion = _negocio.GetTransaccion(id);
 
-            if (Transaccion == null)
+            if (transaccion == null)
             {
                 return null;
             }
 
-            return View(Transaccion);
+            return View(transaccion);
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Transaccion Transaccion)
+        public ActionResult Eliminar(Transaccion transaccion)
         {
             if (ModelState.IsValid)
             {
-                _negocio.Eliminar(Transaccion);
+                _negocio.Eliminar(transaccion);
                 return RedirectToAction(nameof(Index));
             }
 
