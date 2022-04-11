@@ -133,6 +133,7 @@
     <Compile Include="Controllers\NominaController.cs" />
     <Compile Include="Controllers\PuestoController.cs" />
     <Compile Include="Controllers\TransaccionController.cs" />
+    <Compile Include="Controllers\Tipo_IngresoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,12 +196,17 @@
     <Content Include="Views\detalles_Nomina\Crear.cshtml" />
     <Content Include="Views\detalles_Nomina\Eliminar.cshtml" />
     <Content Include="Views\detalles_Nomina\Editar.cshtml" />
+    <Content Include="Views\tipo_Ingreso\Index.cshtml" />
+    <Content Include="Views\tipo_Ingreso\Crear.cshtml" />
+    <Content Include="Views\tipo_Ingreso\Editar.cshtml" />
+    <Content Include="Views\tipo_Ingreso\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Editar\" />
     <Folder Include="Views\Usuario\" />
+    <Folder Include="Views\Yipo_Ingreso\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
