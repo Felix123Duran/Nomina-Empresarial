@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Lista de Puesto</h2>
+<link href="~/Content/Table.css" rel="stylesheet" />
 <p>
-    @Html.ActionLink("Nuevo Puesto", "Crear")
+    @Html.ActionLink("Nuevo Puesto", "Crear", "Puesto", new {@class="btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -15,16 +15,16 @@
             @Html.DisplayNameFor(model => model.ID_Puesto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rango)
+            Rango
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Saldo_Minimo)
+            Saldo Minimo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Saldo_Maximo)
+            Saldo Maximo
         </th>
         <th></th>
     </tr>
@@ -47,9 +47,8 @@
             @Html.DisplayFor(modelItem => item.Saldo_Maximo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Editar", new { id=item.ID_Puesto  }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Eliminar", new {  id=item.ID_Puesto  })
+            @Html.ActionLink("Editar", "Editar", new { id=item.ID_Puesto  }, new {@class="btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Eliminar", new {  id=item.ID_Puesto  }, new {@class="btn btn-danger" })
         </td>
     </tr>
 }

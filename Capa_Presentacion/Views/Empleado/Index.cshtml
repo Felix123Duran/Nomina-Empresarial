@@ -4,66 +4,80 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Nuevo Empleado", "Crear")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_Empleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cedula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Empleado_Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Depart6amento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Puesto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Salario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_Igreso)
-        </th>
-        <th></th>
-    </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/Table.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Listado De Empleados</h2>
+    <p>
+        @Html.ActionLink("Nuevo Empleado", "Crear","Empleado", new {@class="btn btn-success" })
+    </p>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID_Empleado)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Cedula)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Empleado_Nombre)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Id_Depart6amento)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Id_Puesto)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Salario)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID_Igreso)
-    </td>
-    <td>
-        @Html.ActionLink("Editar", "Editar", new { id = item.ID_Empleado }) |
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ID_Empleado })
-    </td>
-</tr>
-}
 
-</table>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Empleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                Nombre del Empleado
+            </th>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Puesto
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Igreso)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Empleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cedula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empleado_Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_Depart6amento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_Puesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Igreso)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Editar", "Editar", new { id = item.ID_Empleado }, new {@class="btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ID_Empleado }, new {@class="btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+
+

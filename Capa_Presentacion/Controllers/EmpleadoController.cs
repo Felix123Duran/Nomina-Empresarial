@@ -33,7 +33,7 @@ namespace Capa_Presentacion.Controllers
         public ActionResult Crear(Empleado empleado)
         {
             _negocio.EmpleadosCrear(empleado);
-            return View();
+            return RedirectToAction(nameof(Index));
         }
 
         //Editar Empleeado

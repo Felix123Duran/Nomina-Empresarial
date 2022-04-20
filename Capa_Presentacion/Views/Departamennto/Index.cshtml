@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Lista de Departamentos</h2>
+<link href="~/Content/Table.css" rel="stylesheet" />
 <p>
-    @Html.ActionLink("Crear Nuevo Departamento", "Crear")
+    @Html.ActionLink("Nuevo Departamento", "Crear","Departamennto", new {@class="btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -15,13 +15,13 @@
             @Html.DisplayNameFor(model => model.ID_Departamento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre_Departamento)
+            Nombre del Departamento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ubicacion_fisica)
+            Ubicacion Fisica 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Resposable_Area)
+            Responsable de Area
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,8 @@
             @Html.DisplayFor(modelItem => item.Resposable_Area)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.ID_Departamento  }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new {  id=item.ID_Departamento  })
+            @Html.ActionLink("Editar", "Editar", new { id=item.ID_Departamento  }, new {@class="btn btn-primary" }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new {  id=item.ID_Departamento  }, new {@class="btn btn-danger" })
         </td>
     </tr>
 }

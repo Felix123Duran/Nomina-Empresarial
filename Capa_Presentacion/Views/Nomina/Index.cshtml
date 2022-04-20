@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Nomina</h2>
+<link href="~/Content/Table.css" rel="stylesheet" />
 <p>
-    @Html.ActionLink("Create New", "Crear")
+    @Html.ActionLink("Nueva Nomina", "Crear","Nomina", new {@class="btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,8 @@
             @Html.DisplayFor(modelItem => item.hasta)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Editar", new { id=item.ID_nomina }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Eliminar", new {  id=item.ID_nomina  })
+            @Html.ActionLink("Editar", "Editar", new { id=item.ID_nomina }, new {@class="btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Eliminar", new {  id=item.ID_nomina  }, new {@class="btn btn-danger" })
         </td>
     </tr>
 }

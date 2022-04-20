@@ -1,0 +1,21 @@
+﻿body {
+    background-image: url(https://blog.kellyservices.com.mx/hubfs/nomina.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-size: 17px;
+}
+table{
+    background-color:#ffffff;
+    width: 100%;
+    border-collapse:collapse;
+}
+th{
+    background-color:#808080;
+    border-bottom:solid 5px #525252;
+    color:aliceblue;
+}
+
+h2 {
+    color: aliceblue;
+    text-align: center;
+}
