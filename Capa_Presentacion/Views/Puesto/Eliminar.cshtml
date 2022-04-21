@@ -5,7 +5,8 @@
 }
 
 <h2>Eliminar</h2>
-
+<link href="~/Content/Table.css" rel="stylesheet" />
+<link href="~/Content/Crear.css" rel="stylesheet" />
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Puesto</h4>
@@ -60,8 +61,8 @@
         <input type="hidden" value="@Model.ID_Puesto" id="ID_Puesto" name="ID_Puesto" />
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index","Puesto",new {@class="btn btn-primary" })
         </div>
     }
 </div>
